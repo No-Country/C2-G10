@@ -12,8 +12,12 @@ import java.util.List;
 @Component
 public class PatientMapper {
 
-    @Autowired
     private AppointmentMapper appointmentMapper;
+
+    @Autowired
+    public PatientMapper(AppointmentMapper appointmentMapper) {
+        this.appointmentMapper = appointmentMapper;
+    }
 
     public PatientEntity dtoToEntity(PatientDTO dto) {
         PatientEntity entity = new PatientEntity();
@@ -32,7 +36,9 @@ public class PatientMapper {
         dto.setEmail(entity.getEmail());
         dto.setPassword(entity.getPassword());
         // validar si se cargan los turnos y setear
-        dto.setAppointmentDTO(this.appointmentMapper.entityListToDTOList(entity.getAppointments()));
+        if (entity.getAppointment() != null) {
+            dto.setAppointment(this.appointmentMapper.entityToDTO(entity.getAppointment()));
+        }
         return dto;
     }
 
