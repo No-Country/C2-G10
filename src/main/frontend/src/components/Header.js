@@ -6,15 +6,15 @@ const Header = () => {
       <div className="header">
         <img src="/assets/appointment.png" alt="" />
         <div className="navBar">
-          <NavLink exact to="/">
+          <NavLink to="/">
             <p>Home</p>
           </NavLink>
-          <NavLink exact to="/">
+          <Link to="/auth">
             <p>Crear cuenta</p>
-          </NavLink>
-          <NavLink exact to="/">
+          </Link>
+          <Link to="/auth">
             <p>Ingresar</p>
-          </NavLink>
+          </Link>
         </div>
       </div>
     </header>
