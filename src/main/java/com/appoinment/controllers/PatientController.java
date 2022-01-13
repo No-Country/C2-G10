@@ -33,14 +33,11 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @PostMapping("/{id}/appointment/{idAppointment}")
-    public ResponseEntity<Void> addAppointment(@PathVariable Long id, @PathVariable Long idAppointment) {
-        this.patientService.addAppointment(id, idAppointment);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-
+    /*
+        Recibe el id del paciente para obtener su turno asignado
+     */
     @GetMapping("/appointment/{id}")
-    public ResponseEntity<List<AppointmentDTO>> getAppointment(@PathVariable Long id) {
-        return ResponseEntity.ok(this.patientService.getAppointments(id));
+    public ResponseEntity<AppointmentDTO> getAppointment(@PathVariable Long id) {
+        return ResponseEntity.ok(this.patientService.getAppointment(id));
     }
 }
