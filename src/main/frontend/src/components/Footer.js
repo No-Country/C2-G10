@@ -4,13 +4,13 @@ const Footer = () => {
     return (
     <footer>
         <div className="navBar">
-          <NavLink exact to="/">
+          <NavLink to="/">
             <p>Home</p>
           </NavLink>
-          <NavLink exact to="/">
+          <NavLink to="/">
             <p>Crear cuenta</p>
           </NavLink>
-          <NavLink exact to="/">
+          <NavLink to="/">
             <p>Ingresar</p>
           </NavLink>
         </div>

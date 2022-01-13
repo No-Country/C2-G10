@@ -15,9 +15,7 @@ public interface PatientService {
     PatientDTO save(PatientDTO patientDTO);
     PatientDTO update(Long id, PatientDTO patientDTO);
     void delete(Long id);
-    void addAppointment(Long id, Long idAppointment);
-    void removeAppointment(Long id, Long idAppointment);
 
-    List<AppointmentDTO> getAppointments(Long id);
+    AppointmentDTO getAppointment(Long id);
     PatientEntity getEntityById(Long id);
 }

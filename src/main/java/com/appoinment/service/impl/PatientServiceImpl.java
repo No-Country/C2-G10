@@ -5,6 +5,7 @@ import com.appoinment.dto.PatientDTO;
 import com.appoinment.entity.AppointmentEntity;
 import com.appoinment.entity.PatientEntity;
 import com.appoinment.mapper.PatientMapper;
+import com.appoinment.repository.AppointmentRepository;
 import com.appoinment.repository.PatientRepository;
 import com.appoinment.service.AppointmentService;
 import com.appoinment.service.PatientService;
@@ -21,16 +22,18 @@ public class PatientServiceImpl implements PatientService {
 
     // repo
     private final PatientRepository patientRepository;
+    private final AppointmentRepository appointmentRepository;
     // mapper
     private final PatientMapper patientMapper;
     // service
     private final AppointmentService appointmentService;
 
     @Autowired
-    public PatientServiceImpl(PatientRepository patientRepository, PatientMapper patientMapper, AppointmentService appointmentService) {
+    public PatientServiceImpl(PatientRepository patientRepository, PatientMapper patientMapper, AppointmentService appointmentService, AppointmentRepository appointmentRepository) {
         this.patientRepository = patientRepository;
         this.patientMapper = patientMapper;
         this.appointmentService = appointmentService;
+        this.appointmentRepository = appointmentRepository;
     }
 
     public PatientDTO getById(Long id) {
@@ -76,23 +79,10 @@ public class PatientServiceImpl implements PatientService {
 
     }
 
-    public void addAppointment(Long id, Long idAppointment) {
-        PatientEntity entity = this.getEntityById(id);
-        entity.getAppointments().size();
-        AppointmentEntity appointment = this.appointmentService.getEntityById(idAppointment);
-        entity.addAppointment(appointment);
-        this.patientRepository.save(entity);
-    }
-
-    @Override
-    public void removeAppointment(Long id, Long idAppointment) {
-
-    }
-
-    public List<AppointmentDTO> getAppointments(Long id) {
+    public AppointmentDTO getAppointment(Long id) {
         PatientDTO entity = getById(id); // obtenemos el paciente por id
-        List<AppointmentDTO> listaTurnos = entity.getAppointmentDTO();
-        return listaTurnos;
+        AppointmentDTO appointmentDTO = entity.getAppointment();
+        return appointmentDTO;
     }
 
     public PatientEntity getEntityById(Long id) {

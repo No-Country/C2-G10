@@ -22,19 +22,15 @@ public class PatientEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+
+    @Column(nullable = false, unique = true)
     private Long dni;
+
+    @Column(nullable = false, unique = true)
     private String email;
     private String password;
     private boolean deleted = Boolean.FALSE; // soft delete SQL
 
-    @ManyToMany(mappedBy = "patients", cascade = CascadeType.ALL)
-    private List<AppointmentEntity> appointments;
-
-    public void addAppointment(AppointmentEntity appointment) {
-        this.appointments.add(appointment);
-    }
-
-    public void removeAppointment(AppointmentEntity appointment) {
-        this.appointments.remove(appointment);
-    }
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+    private AppointmentEntity appointment;
 }
