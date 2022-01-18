@@ -65,7 +65,6 @@ public class PatientServiceImpl implements PatientService {
         return resultDTO;
     }
 
-    @Override
     public PatientDTO update(Long id, PatientDTO patientDTO) {
         Optional<PatientEntity> entity = this.patientRepository.findById(id);
 
@@ -80,9 +79,9 @@ public class PatientServiceImpl implements PatientService {
         return resultDTO;
     }
 
-    @Override
+    // Dara de baja al paciente mediante el SoftDelete
     public void delete(Long id) {
-
+        this.patientRepository.deleteById(id);
     }
 
     public AppointmentDTO getAppointment(Long id) {
