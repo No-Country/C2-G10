@@ -22,18 +22,14 @@ public class PatientServiceImpl implements PatientService {
 
     // repo
     private final PatientRepository patientRepository;
-    private final AppointmentRepository appointmentRepository;
     // mapper
     private final PatientMapper patientMapper;
     // service
-    private final AppointmentService appointmentService;
 
     @Autowired
-    public PatientServiceImpl(PatientRepository patientRepository, PatientMapper patientMapper, AppointmentService appointmentService, AppointmentRepository appointmentRepository) {
+    public PatientServiceImpl(PatientRepository patientRepository, PatientMapper patientMapper) {
         this.patientRepository = patientRepository;
         this.patientMapper = patientMapper;
-        this.appointmentService = appointmentService;
-        this.appointmentRepository = appointmentRepository;
     }
 
     public PatientDTO getById(Long id) {
@@ -71,7 +67,17 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public PatientDTO update(Long id, PatientDTO patientDTO) {
-        return null;
+        Optional<PatientEntity> entity = this.patientRepository.findById(id);
+
+        if (!entity.isPresent()) {
+            // si no existe la entidad lanzar excepcion
+            log.info("Patient not found");
+        }
+
+        this.patientMapper.patientEntityRefreshValues(entity.get(), patientDTO);
+        PatientEntity entitySaved = this.patientRepository.save(entity.get());
+        PatientDTO resultDTO = this.patientMapper.entityToDTO(entitySaved);
+        return resultDTO;
     }
 
     @Override

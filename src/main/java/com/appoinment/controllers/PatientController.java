@@ -40,4 +40,10 @@ public class PatientController {
     public ResponseEntity<AppointmentDTO> getAppointment(@PathVariable Long id) {
         return ResponseEntity.ok(this.patientService.getAppointment(id));
     }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<PatientDTO> update(@PathVariable Long id, @RequestBody PatientDTO dto) {
+        PatientDTO result = this.patientService.update(id, dto);
+        return ResponseEntity.ok().body(result);
+    }
 }
