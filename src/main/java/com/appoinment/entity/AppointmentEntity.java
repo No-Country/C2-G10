@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "appointment")
@@ -20,6 +21,10 @@ public class AppointmentEntity {
     @Column(name = "appointment_date", nullable = false)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate appointmentDate; // fecha del turno
+
+    @Column(name = "appointment_time", nullable = false)
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime appointmentTime; // hora del turno
 
     @OneToOne
     @JoinColumn(name = "id_patient", nullable = false)
