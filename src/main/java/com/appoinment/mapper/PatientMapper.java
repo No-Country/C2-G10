@@ -63,4 +63,13 @@ public class PatientMapper {
     return patientDTOList;
     }
 
+    /*
+        Actualizar o modificar valores del paciente
+     */
+    public void patientEntityRefreshValues(PatientEntity entity, PatientDTO patientDTO) {
+        entity.setName(patientDTO.getName());
+        entity.setDni(patientDTO.getDni());
+        entity.setEmail(patientDTO.getEmail());
+        entity.setPassword(patientDTO.getPassword());
+    }
 }
