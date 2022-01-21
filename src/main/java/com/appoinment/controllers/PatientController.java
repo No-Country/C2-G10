@@ -23,11 +23,6 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-    @GetMapping("/registration")
-    public String patientForm() {
-        return "patient-form";
-    }
-
     // Metodo para el submit del formulario de registro
     @PostMapping("/registration")
     public String savePatient(ModelMap modelMap, @RequestParam String name, @RequestParam Long dni, @RequestParam String email, @RequestParam String password) {
@@ -41,10 +36,10 @@ public class PatientController {
             patientService.save(patientDTO);
             modelMap.put("exito", "Registro exitoso");
             // deberia redireccionar al login
-            return "redirect:/patients/registration";
+            return "redirect:/login";
         } catch (Exception e) {
             modelMap.put("error", "Fallo el registro");
-            return "patient-form";
+            return "login.html";
         }
     }
 
