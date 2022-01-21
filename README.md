@@ -1,3 +1,3 @@
-# C2-G10
+# Appointment
 
-Proyecto: Sistema de gestión de turnos. 
+Es un proyecto de Sistema de gestión de turnos. 

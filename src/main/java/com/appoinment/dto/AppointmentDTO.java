@@ -9,5 +9,6 @@ public class AppointmentDTO {
 
     private Long id;
     private String appointmentDate;
+    private String appointmentTime;
     private Long idPatient;
 }

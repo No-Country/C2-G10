@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <title> Login </title>
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <div class="button-box">
+            <div id="elegir"></div>
+            <button type="button" class="toggle-btn" onclick="login()"><b> Iniciar Sesion </b></button>
+            <button type="button" class="toggle-btn" onclick="registrar()"><b> Registrar </b></button>
+        </div>
+        <div class="avatar">
+            <img class="avatar" src="img/avatar_male.png">
+        </div>
+        <form id="login" class="input-group">
+            <input type="text" class="input-field" placeholder="Correo Electronico" required>
+            <input type="password" class="input-field" placeholder="Contraseña" required>
+            <input type="checkbox" class="check-box"><span><b> Recordar Contraseña </b></span>
+            <button type="submit" class="submit-btn"><b> Acceder </b></button>
+        </form>
+
+        <!-- Formulario Registro -->
+        <form th:action="@{/patients/registration}" method="post" id="registrar" class="input-group">
+            <input type="text" class="input-field" placeholder="Nombre de Usuario" required name="name">
+            <input type="text" class="input-field" placeholder="DNI" required name="dni">
+            <input type="email" class="input-field" placeholder="Correo Electronico" required name="email">
+            <input type="password" class="input-field" placeholder="Contraseña" required name="password">
+            <input type="checkbox" class="check-box"><span><b> Acepto los terminos y condiciones </b></span>
+            <button type="submit" class="submit-btn"><b> Registrar </b></button>
+        </form>
+    </div>
+</div>
+
+<script>
+		var x = document.getElementById("login");
+		var y = document.getElementById("registrar");
+		var z = document.getElementById("elegir");
+
+		function login(){
+			x.style.left = "50px";
+			y.style.left = "450px";
+			z.style.left = "0px";
+		}
+
+		function registrar(){
+			x.style.left = "-400px";
+			y.style.left = "50px";
+			z.style.left = "120px";
+		}
+
+</script>
+</body>
+</html>
