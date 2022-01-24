@@ -170,14 +170,9 @@ body {
 
 .card p {
   font-weight: 300;
-<<<<<<< Updated upstream
-  font-size: 25px;
-  margin-bottom: 10px;
-=======
   font-size: 20px;
   margin-bottom: 10px;
   margin: 25px;
->>>>>>> Stashed changes
 }
 
 /* galeria */
