@@ -2,11 +2,13 @@ package com.appoinment.service.impl;
 
 import com.appoinment.dto.AppointmentDTO;
 import com.appoinment.entity.AppointmentEntity;
+import com.appoinment.errors.ErrorService;
 import com.appoinment.mapper.AppointmentMapper;
 import com.appoinment.repository.AppointmentRepository;
 import com.appoinment.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,5 +45,18 @@ public class AppointmentServiceImpl implements AppointmentService {
         Optional<AppointmentEntity> result = this.appointmentRepository.findById(id);
         AppointmentEntity entity = result.get();
         return entity;
+    }
+
+    @Transactional
+    public void delete(Long idPatient, Long idAppointment) throws ErrorService {
+        Optional<AppointmentEntity> result = this.appointmentRepository.findById(idAppointment);
+        if (result.isPresent()) {
+            AppointmentEntity appointment = result.get();
+            if (appointment.getPatient().getId().equals(idPatient)) {
+                this.appointmentRepository.deleteById(idAppointment);
+            }
+        } else {
+            throw new ErrorService("No se encontró el turno solicitado");
+        }
     }
 }

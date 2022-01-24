@@ -15,6 +15,69 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+/* navbar */
+.menu {
+  background-color: #fff;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #08f;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
+}
+
+.logo {
+  color: #08f;
+  font-size: 30px;
+  padding: 0 80px;
+  font-weight: bold;
+}
+
+.content-menu-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-items {
+  display: flex;
+  list-style: none;
+  margin-right: 30px;
+}
+
+.menu-items li {
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+.menu-items li:hover, li.active{
+  background-color: rgba(0, 136, 255, .3);
+  transition: .4s;
+}
+
+.menu-items li a {
+  padding: 7px 13px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  display: block;
+  text-transform: uppercase;
+  color: #08f;
+}
+
+.btn-menu {
+  margin-right: 30px;
+  font-size: 25px;
+  color: #08f;
+  cursor: pointer;
+  display: none;
+}
+
+ul.show-btn {
+  top: 45px;
+}
+
+/* header */
 .hero {
   background: linear-gradient(
       to top,
@@ -270,6 +333,15 @@ input[type="submit"]:hover {
 /* Responsive 800px*/
 
 @media screen and (max-width:800px){
+    .logo {
+      font-size: 25px;
+      padding-left: 35px;
+    }
+
+    .menu-items li a{
+      font-size:10px;
+    }
+
     .textos-hero h1 {
         text-align: center;
         font-size: 50px;
