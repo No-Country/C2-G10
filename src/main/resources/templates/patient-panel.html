@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment</title>
+
+    <!--Fuente-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fontawesome Para los Iconos -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../static/css/home-style.css" />
+
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body>
+    <!-- menu de navegacion -->
+    <nav class="menu">
+      <label class="logo">Appointment</label>
+      <div class="content-menu-items">
+        <ul class="menu-items">
+          <li><a href="#">Turnos</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+        <span class="btn-menu">
+          <i class="fa fa-bars"></i>
+        </span>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="textos-hero">
+        <h1 th:text="${title}"></h1>
+        <p th:text="${description}"></p>
+        <br />
+      </div>
+      <!--Ola-->
+      <div class="svg-hero" style="height: 150px; overflow: hidden">
+        <svg
+          viewBox="0 0 500 150"
+          preserveAspectRatio="none"
+          style="height: 100%; width: 100%"
+        >
+          <path
+            d="M-5.92,21.22 C317.43,188.98 349.20,-49.98 500.00,49.98 L500.00,150.00 L-5.92,156.42 Z"
+            style="stroke: none; fill: #ffff"
+          ></path>
+        </svg>
+      </div>
+    </header>
+
+    <section class="info-last">
+      <div class="contenedor last-section">
+        <div class="contenedor-textos-main">
+          <h2 class="titulo left">Novedades</h2>
+          <p class="parrafo">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia
+            eveniet, illum temporibus tenetur saepe praesentium asperiores
+            cumque fuga mollitia totam?
+          </p>
+          <a href="" class="cta">Learn More</a>
+        </div>
+        <img src="../static/img/ilustracion.svg" alt="" />
+      </div>
+
+      <section class="cards contenedor">
+        <h2 class="titulo">Solicitar Turno</h2>
+      </section>
+
+      <section class="info">
+        <div class="contenedor">
+          <h2 class="titulo left">Más rapido, más simple, más comodo.</h2>
+          <p>Con Appointment lo tienes!</p>
+        </div>
+      </section>
+
+      <section class="galeria">
+        <div class="contenedor">
+          <h2 class="titulo">Nuestros Especialistas</h2>
+          <article class="galeria-cont">
+            <img src="../static/img/doctor01.jpg" alt="" />
+            <img src="../static/img/doctor02.jpg" alt="" />
+            <img src="../static/img/doctor03.jpg" alt="" />
+            <img src="../static/img/doctor04.jpg" alt="" />
+            <img src="../static/img/doctor05.jpg" alt="" />
+            <img src="../static/img/doctor06.jpg" alt="" />
+          </article>
+        </div>
+      </section>
+
+      <!--Ola-->
+      <div class="svg-wave" style="height: 150px; overflow: hidden">
+        <svg
+          viewBox="0 0 500 150"
+          preserveAspectRatio="none"
+          style="height: 100%; width: 100%"
+        >
+          <path
+            d="M-5.92,21.22 C317.43,188.98 349.20,-49.98 500.00,49.98 L500.00,150.00 L-5.92,156.42 Z"
+            style="stroke: none; fill: #08f"
+          ></path>
+        </svg>
+      </div>
+    </section>
+    <footer id="contacto">
+      <div class="contenedor">
+        <h2 class="titulo">Contáctenos</h2>
+        <form action="" class="form">
+          <input class="input" type="text" name="" placeholder="Nombre" />
+          <input class="input" type="email" name="" placeholder="Email" />
+          <textarea
+            class="input"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Mensaje"
+          ></textarea>
+          <input class="input" type="submit" value="Enviar" />
+        </form>
+      </div>
+    </footer>
+  </body>
+</html>
