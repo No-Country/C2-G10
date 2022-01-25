@@ -22,7 +22,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="../static/css/home-style.css" />
+    <link rel="stylesheet" href="/css/home-style.css" />
 
     <script src="/js/app.js" defer></script>
   </head>
@@ -32,8 +32,8 @@
       <label class="logo">Appointment</label>
       <div class="content-menu-items">
         <ul class="menu-items">
-          <li><a href="#">Turnos</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#turno">Turnos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
           <li><a href="#">Logout</a></li>
         </ul>
         <span class="btn-menu">
@@ -42,7 +42,8 @@
       </div>
     </nav>
 
-    <header class="hero">
+    <!-- HEADER -->
+    <header class="hero-patient">
       <div class="textos-hero">
         <h1 th:text="${title}"></h1>
         <p th:text="${description}"></p>
@@ -78,7 +79,12 @@
       </div>
 
       <section class="cards contenedor">
-        <h2 class="titulo">Solicitar Turno</h2>
+        <h2 class="titulo" id="turno">Solicitar Turno</h2>
+        <form th:action="" class="">
+          <input type="date" name="appoinmentDate" />
+          <input type="time" name="appoinmentTime" />
+          <input class="input" type="submit" value="Enviar" />
+        </form>
       </section>
 
       <section class="info">
@@ -92,12 +98,12 @@
         <div class="contenedor">
           <h2 class="titulo">Nuestros Especialistas</h2>
           <article class="galeria-cont">
-            <img src="../static/img/doctor01.jpg" alt="" />
-            <img src="../static/img/doctor02.jpg" alt="" />
-            <img src="../static/img/doctor03.jpg" alt="" />
-            <img src="../static/img/doctor04.jpg" alt="" />
-            <img src="../static/img/doctor05.jpg" alt="" />
-            <img src="../static/img/doctor06.jpg" alt="" />
+            <img src="/img/doctor01.jpg" alt="" />
+            <img src="/img/doctor02.jpg" alt="" />
+            <img src="/img/doctor03.jpg" alt="" />
+            <img src="/img/doctor04.jpg" alt="" />
+            <img src="/img/doctor05.jpg" alt="" />
+            <img src="/img/doctor06.jpg" alt="" />
           </article>
         </div>
       </section>

@@ -30,6 +30,7 @@ public class PatientServiceImpl implements PatientService {
         return patientRepository.getById(id);
     }
 
+    @Transactional
     public PatientEntity getByEmail(String email) throws ErrorService {
         PatientEntity patientEntity = this.patientRepository.findByEmail(email);
         if (patientEntity.getEmail() == null || patientEntity.getEmail().isEmpty()) {

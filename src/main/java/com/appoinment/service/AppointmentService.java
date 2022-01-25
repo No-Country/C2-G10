@@ -1,12 +1,14 @@
 package com.appoinment.service;
 
-import com.appoinment.dto.AppointmentDTO;
 import com.appoinment.entity.AppointmentEntity;
+import com.appoinment.errors.ErrorService;
 
 import java.util.List;
 
 public interface AppointmentService {
-    List<AppointmentDTO> getAllAppointments();
-    AppointmentDTO save(AppointmentDTO dto);
+    List<AppointmentEntity> getAllAppointments();
+    void save(Long idPatient, String appointmentDate, String appointmentTime) throws ErrorService;
+    void update(Long idAppointment, Long idPatient, String appointmentDate, String appointmentTime) throws ErrorService;
+    void delete(Long idPatient, Long idAppointment) throws ErrorService;
     AppointmentEntity getEntityById(Long idAppointment);
 }
