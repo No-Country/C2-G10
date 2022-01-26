@@ -22,7 +22,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/css/home-style.css" />
+    <link rel="stylesheet" href="/static/css/home-style.css" />
 
     <script src="/js/app.js" defer></script>
   </head>
@@ -128,8 +128,17 @@
         </div>
       </section>
 
+    <section class="cards contenedor">
+      <h2 class="titulo">Solicitar Turno</h2>
+      <form th:action="" class="">
+        <input type="date" name="appoinmentDate" />
+        <input type="time" name="appoinmentTime" />
+        <input class="input" type="submit" value="Enviar" />
+      </form>
+    </section>
+
       <section class="galeria">
-       
+
         <h1 class="titulo"> Nuestros Especialistas </h1>
           <div class="contenedor-notice">
         <div class="wrapper">
@@ -177,15 +186,6 @@
         </div>
       </section>
 
-      <section class="cards contenedor">
-        <h2 class="titulo">Solicitar Turno</h2>
-        <form th:action="" class="">
-          <input type="date" name="appoinmentDate" />
-          <input type="time" name="appoinmentTime" />
-          <input class="input" type="submit" value="Enviar" />
-        </form>
-      </section>
-    
       <!--Ola-->
       <div class="svg-wave" style="height: 150px; overflow: hidden">
         <svg

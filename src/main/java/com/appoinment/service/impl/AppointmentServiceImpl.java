@@ -2,7 +2,6 @@ package com.appoinment.service.impl;
 
 import com.appoinment.entity.AppointmentEntity;
 import com.appoinment.errors.ErrorService;
-import com.appoinment.mapper.AppointmentMapper;
 import com.appoinment.repository.AppointmentRepository;
 import com.appoinment.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +18,11 @@ import java.util.Optional;
 public class AppointmentServiceImpl implements AppointmentService {
 
     private final AppointmentRepository appointmentRepository;
-    private final AppointmentMapper appointmentMapper;
     private final PatientServiceImpl patientService;
 
     @Autowired
-    public AppointmentServiceImpl(AppointmentRepository appointmentRepository, AppointmentMapper appointmentMapper, PatientServiceImpl patientService) {
+    public AppointmentServiceImpl(AppointmentRepository appointmentRepository, PatientServiceImpl patientService) {
         this.appointmentRepository = appointmentRepository;
-        this.appointmentMapper = appointmentMapper;
         this.patientService = patientService;
     }
 
