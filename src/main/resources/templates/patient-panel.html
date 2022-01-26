@@ -32,8 +32,8 @@
       <label class="logo">Appointment</label>
       <div class="content-menu-items">
         <ul class="menu-items">
-          <li><a href="#">Turnos</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#Solicitar-turnos">Turnos</a></li>
+          <li><a href="#novedades">Noticias</a></li>
           <li><a href="#">Logout</a></li>
         </ul>
         <span class="btn-menu">
@@ -64,7 +64,7 @@
     </header>
 
       <section class="galeria">
-        <h1 class="titulo"> Novedades </h1>
+        <h1 class="titulo" id="novedades"> Novedades </h1>
           <div class="contenedor-notice">
         <div class="wrapper">
           <div class="card-info">
@@ -121,7 +121,7 @@
       <section class="info">
         <div class="contenedor-informacion">
           <h2 class="titulo left">Más rapido, más simple, más comodo.</h2>
-          <p>Con Appointment estas al dia!</p>
+          <p>CSiempre priorizando la valoracion y el respeto a la dignidad humana, aportando calidad, conocimiento cientifico, utilizacion eficiente de los recuersos y poniendo en valor la importancia de ser un hospital.</p>
         </div>
       </section>
 
@@ -173,10 +173,35 @@
         </div>
       </section>
     
-
-      <section class="cards contenedor">
-        <h2 class="titulo">Solicitar Turno</h2>
+      <div>
+      <div class="turnos">
+      <div class="contenedor">
+        <h2 class="titulo" id="Solicitar-turnos">Solicitar Turnos</h2>
+        <form action="" class="form-turnos">
+          <input class="input-turnos" type="text" name="" placeholder="Nombre"  />
+          <input class="input-turnos" type="email" name="" placeholder="Email" />
+          <input class="input-turnos-dni" type="number" name="" placeholder="DNI" />
+          <input class="input-turnos-date" type="date" name="" placeholder="Fecha/Mes/Año"  />
+          
+          <textarea
+            class="input-turnos"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Mensaje"
+          ></textarea>
+          <input class="input-turnos" type="submit" value="Enviar" />
+        </form>
+      </div>
+      </div>  
+        </div>
       </section>
+      
+
+
+
+
       <!--Ola-->
       <div class="svg-wave" style="height: 150px; overflow: hidden">
         <svg
@@ -190,26 +215,15 @@
           ></path>
         </svg>
       </div>
-
-
     </section>
-    <footer id="contacto">
-      <div class="contenedor">
-        <h2 class="titulo">Contáctenos</h2>
-        <form action="" class="form">
-          <input class="input" type="text" name="" placeholder="Nombre" />
-          <input class="input" type="email" name="" placeholder="Email" />
-          <textarea
-            class="input"
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Mensaje"
-          ></textarea>
-          <input class="input" type="submit" value="Enviar" />
-        </form>
-      </div>
-    </footer>
+
+
+
+
+    <div class="copyright">
+  <p> Copyright 2022 © Jean Miceli & Felipe Herrera. All Right Reserved </p>
+</div>
+
+
   </body>
 </html>

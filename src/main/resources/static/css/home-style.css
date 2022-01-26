@@ -170,6 +170,14 @@ ul.show-btn {
 
 }
 
+.titulo2 {
+  font-weight: 500;
+  font-size: 35px;
+  text-align: center;
+  margin-top: 50px;
+
+}
+
 .titulo.left {
   text-align: left;
 }
@@ -208,6 +216,7 @@ ul.show-btn {
   width: 100%;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
 }
 
 .card {
@@ -217,6 +226,7 @@ ul.show-btn {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   transform: scale(1);
   transition: transform 0.6s;
+  border-radius: 15px;
 }
 
 /* animacion a las cards */
@@ -268,17 +278,76 @@ ul.show-btn {
   width: 40%;
 }
 
+
+
+
+/* SOLICITUD TURNOS */
+
+
+
+
+.form-turnos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: default;
+  width: 100%;
+}
+
+
+.input-turnos {
+  background: transparent;
+  border: 0;
+  color: #3E3B3B;
+  outline: none;
+  border: 1px solid  #C0C0C0;
+  padding: 20px 10px;
+  border-radius: 15px;
+  
+}
+
+.input-turnos::placeholder {
+    color: #C0C0C0;
+    font-family: 'raleway', sans-serif;
+}
+
+.form-turnos textarea {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-turnos-dni,
+.input-turnos-date {
+  background: transparent;
+  border: 0;
+  color: #3E3B3B;
+  border: 1px solid  #C0C0C0;
+  padding: 20px 10px;
+  border-radius: 15px;
+  outline: none;
+}
+
+.input-turnos-dni:placeholder {
+    color: #C0C0C0;
+    font-family: 'raleway', sans-serif;
+}
+
 /* footer */
+
+
 
 footer {
   background: #08f;
   color: #ffff;
+  width: 100%;
 }
 
 .form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
+
 }
 
 .input {
@@ -288,6 +357,7 @@ footer {
   outline: none;
   border: 1px solid #fff;
   padding: 20px 10px;
+  border-radius: 15px;
 }
 
 .input::placeholder {
@@ -295,12 +365,26 @@ footer {
     font-family: 'raleway', sans-serif;
 }
 
+
+
+
 input[type="text"], 
 input[type="email"] {
-    display: inline-block;
-    width: 49%;
+
+    width: 24%;
     margin-bottom: 30px;
 }
+input[type="number"]{
+
+  width: 24%;
+  margin-bottom: 30px;
+}
+input[type="date"]{
+  width: 24%;
+  margin-bottom: 30px;
+}
+
+
 
 .form textarea {
     width: 100%;
@@ -318,8 +402,12 @@ input[type="submit"]:hover {
     color: #08f;
     background: #fff;
 }
-/*  ---------------------------------------------------------------------------------------------------------------------------------  */
+
+
+
 /* GALERY NOTICE & GALERY SPEC*/
+
+
 
 .wrapper{
   display: flex;
@@ -413,7 +501,11 @@ input[type="submit"]:hover {
 }
 
 
+
 /* COPIRIGHY */
+
+
+
 .copyright {
   background: #000;
   color: #fff;
@@ -421,7 +513,11 @@ input[type="submit"]:hover {
   padding: 10px;
 }
 
-/*  ---------------------------------------------------------------------------------------------------------------------------------  */
+
+
+
+
+
 
 
 /* Responsive 800px*/
