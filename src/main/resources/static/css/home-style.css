@@ -490,10 +490,33 @@ input[type="submit"]:hover {
         margin-bottom: 20px;
     }
 
+    .contenedor-informacion {
+        margin: auto;
+        width: 90%;
+        max-width: 1500px;
+        overflow: hidden;
+        padding: 80px 0;
+        text-align: left;
+    }
+
     /* GALERIA */
 
     .galeria-cont>img {
         width: 40%;
+    }
+
+    .card-info {
+        margin-bottom: 19px;
+        width: 230px;
+        height: 340px;
+        padding: 35px;
+        background: #fff;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+        transition: 0.5s ease-in-out;
+        border-radius: 10px;
     }
 
     /* LAST SECTION */
@@ -532,5 +555,27 @@ input[type="submit"]:hover {
 
     .galeria-cont>img {
         width: 97%;
+    }
+
+    .contenedor-informacion {
+        margin: auto;
+        width: 90%;
+        max-width: 1500px;
+        overflow: hidden;
+        padding: 58px 0;
+    }
+
+    .card-info {
+        margin-bottom: 20px;
+        width: 146px;
+        height: 195px;
+        padding: 35px;
+        background: #fff;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+        transition: 0.5s ease-in-out;
+        border-radius: 10px;
     }
 }

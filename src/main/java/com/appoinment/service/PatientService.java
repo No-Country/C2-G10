@@ -1,7 +1,5 @@
 package com.appoinment.service;
 
-import com.appoinment.dto.AppointmentDTO;
-import com.appoinment.dto.PatientDTO;
 import com.appoinment.entity.AppointmentEntity;
 import com.appoinment.entity.PatientEntity;
 import com.appoinment.errors.ErrorService;
