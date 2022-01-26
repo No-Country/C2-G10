@@ -22,7 +22,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="../static/css/home-style.css" />
+    <link rel="stylesheet" href="/css/home-style.css" />
 
     <script src="/js/app.js" defer></script>
   </head>
@@ -32,8 +32,8 @@
       <label class="logo">Appointment</label>
       <div class="content-menu-items">
         <ul class="menu-items">
-          <li><a href="#">Turnos</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#turno">Turnos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
           <li><a href="#">Logout</a></li>
         </ul>
         <span class="btn-menu">
@@ -41,8 +41,9 @@
         </span>
       </div>
     </nav>
-
-    <header class="hero">
+    
+    <!-- HEADER -->
+    <header class="hero-patient">
       <div class="textos-hero">
         <h1 th:text="${title}"></h1>
         <p th:text="${description}"></p>
@@ -63,6 +64,7 @@
       </div>
     </header>
 
+   <!-- <section class="info-last"> -->
       <section class="galeria">
         <h1 class="titulo"> Novedades </h1>
           <div class="contenedor-notice">
@@ -118,6 +120,7 @@
         </div>
         </div>
       </section>
+    
       <section class="info">
         <div class="contenedor-informacion">
           <h2 class="titulo left">Más rapido, más simple, más comodo.</h2>
@@ -126,6 +129,7 @@
       </section>
 
       <section class="galeria">
+       
         <h1 class="titulo"> Nuestros Especialistas </h1>
           <div class="contenedor-notice">
         <div class="wrapper">
@@ -172,11 +176,16 @@
         </div>
         </div>
       </section>
-    
 
       <section class="cards contenedor">
         <h2 class="titulo">Solicitar Turno</h2>
+        <form th:action="" class="">
+          <input type="date" name="appoinmentDate" />
+          <input type="time" name="appoinmentTime" />
+          <input class="input" type="submit" value="Enviar" />
+        </form>
       </section>
+    
       <!--Ola-->
       <div class="svg-wave" style="height: 150px; overflow: hidden">
         <svg
@@ -190,7 +199,6 @@
           ></path>
         </svg>
       </div>
-
 
     </section>
     <footer id="contacto">
