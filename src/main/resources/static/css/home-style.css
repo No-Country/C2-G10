@@ -95,6 +95,23 @@ ul.show-btn {
   overflow: hidden;
 }
 
+.hero-patient {
+  background: linear-gradient(
+      to top,
+      rgba(0, 197, 251, 0.699) 0%,
+      rgba(0, 90, 234, 0.705) 100%
+    ),
+    url('../img/AppointmentBackground02.png');
+  width: 100%;
+  height: 650px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
 .textos-hero {
   height: 500px;
   color: #ffff;
@@ -244,14 +261,8 @@ ul.show-btn {
 
 .card p {
   font-weight: 300;
-<<<<<<< Updated upstream
   font-size: 25px;
   margin-bottom: 10px;
-=======
-  font-size: 20px;
-  margin-bottom: 10px;
-  margin: 25px;
->>>>>>> Stashed changes
 }
 
 /* galeria */
@@ -575,10 +586,33 @@ input[type="submit"]:hover {
         margin-bottom: 20px;
     }
 
+    .contenedor-informacion {
+        margin: auto;
+        width: 90%;
+        max-width: 1500px;
+        overflow: hidden;
+        padding: 80px 0;
+        text-align: left;
+    }
+
     /* GALERIA */
 
     .galeria-cont>img {
         width: 40%;
+    }
+
+    .card-info {
+        margin-bottom: 19px;
+        width: 230px;
+        height: 340px;
+        padding: 35px;
+        background: #fff;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+        transition: 0.5s ease-in-out;
+        border-radius: 10px;
     }
 
     /* LAST SECTION */
@@ -617,5 +651,27 @@ input[type="submit"]:hover {
 
     .galeria-cont>img {
         width: 97%;
+    }
+
+    .contenedor-informacion {
+        margin: auto;
+        width: 90%;
+        max-width: 1500px;
+        overflow: hidden;
+        padding: 58px 0;
+    }
+
+    .card-info {
+        margin-bottom: 20px;
+        width: 146px;
+        height: 195px;
+        padding: 35px;
+        background: #fff;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+        transition: 0.5s ease-in-out;
+        border-radius: 10px;
     }
 }

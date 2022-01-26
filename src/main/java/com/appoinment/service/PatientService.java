@@ -1,21 +1,20 @@
 package com.appoinment.service;
 
-import com.appoinment.dto.AppointmentDTO;
-import com.appoinment.dto.PatientBasicDTO;
-import com.appoinment.dto.PatientDTO;
+import com.appoinment.entity.AppointmentEntity;
 import com.appoinment.entity.PatientEntity;
+import com.appoinment.errors.ErrorService;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface PatientService {
+public interface PatientService extends UserDetailsService {
 
-    PatientDTO getById(Long id);
-    PatientDTO getByEmail(String email);
-    List<PatientDTO> getAll();
-    PatientDTO save(PatientDTO patientDTO);
-    PatientDTO update(Long id, PatientDTO patientDTO);
+    PatientEntity getById(Long id);
+    PatientEntity getByEmail(String email) throws ErrorService;
+    List<PatientEntity> getAll();
+    void save(String name, Long dni, String email, String password) throws ErrorService;
+    void update(Long id, String name, Long dni, String email, String password) throws ErrorService;
     void delete(Long id);
-
-    AppointmentDTO getAppointment(Long id);
+    AppointmentEntity getAppointment(Long id);
     PatientEntity getEntityById(Long id);
 }
