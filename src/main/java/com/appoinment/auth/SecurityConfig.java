@@ -28,19 +28,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers()
                 .frameOptions()
                 .sameOrigin()
-                .and().authorizeRequests()
+                .and()
+                .authorizeRequests()
                 .antMatchers("/css/*", "/js/*", "/img/*")
                 .permitAll()
-                .and().formLogin()
+                .and()
+                .formLogin()
                 .loginPage("/login")
-                .loginProcessingUrl("/logincheck") // esto se usa en el html del login
+                .loginProcessingUrl("/logincheck")
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/inicio") // direccion cuando se autoriza un usuario
+                .defaultSuccessUrl("/inicio")
                 .permitAll()
-                .and().logout()
+                .and()
+                .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/") // envia al home cuando se desconecta
+                .logoutSuccessUrl("/login")
                 .permitAll();
     }
 }
