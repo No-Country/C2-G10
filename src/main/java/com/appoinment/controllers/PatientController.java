@@ -1,7 +1,6 @@
 package com.appoinment.controllers;
 
-import com.appoinment.dto.AppointmentDTO;
-import com.appoinment.dto.PatientDTO;
+import com.appoinment.entity.PatientEntity;
 import com.appoinment.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,37 +15,49 @@ import java.util.List;
 @RequestMapping("/patients")
 public class PatientController {
 
+    @Autowired
     private PatientService patientService;
 
-    @Autowired
-    public PatientController(PatientService patientService) {
-        this.patientService = patientService;
+    // Metodo para el submit del formulario de registro
+    @PostMapping("/save")
+    public String savePatient(ModelMap model, @RequestParam String name,
+                              @RequestParam Long dni, @RequestParam String email, @RequestParam String password) {
+        try {
+            patientService.save(name, dni, email, password);
+        } catch (Exception e) {
+            model.put("error", e.getMessage());
+            return "login.html";
+        }
+        model.put("title", "Bienvenido " + name);
+        model.put("description", "Tu usuario fue registrado de manera satisfactoria!");
+        return "patient-panel.html";
     }
 
-    // Metodo para el submit del formulario de registro
-    @PostMapping("/registration")
-    public String savePatient(ModelMap modelMap, @RequestParam String name, @RequestParam Long dni, @RequestParam String email, @RequestParam String password) {
-        PatientDTO patientDTO = new PatientDTO();
-        patientDTO.setName(name);
-        patientDTO.setDni(dni);
-        patientDTO.setEmail(email);
-        patientDTO.setPassword(password);
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable Long id, ModelMap model) {
+        model.put("patient", this.patientService.getById(id));
+        return null; // TODO: vista del formulario para modificar datos
+    }
 
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable Long id, @RequestParam String name,
+                         @RequestParam Long dni, @RequestParam String email,
+                         @RequestParam String password, ModelMap model) {
         try {
-            patientService.save(patientDTO);
-            modelMap.put("exito", "Registro exitoso");
-            // deberia redireccionar al login
-            return "redirect:/login";
+            this.patientService.update(id, name, dni, email, password);
+            model.put("exito", "Modificacion Exitosa.");
+            return "patient-panel.html";
         } catch (Exception e) {
-            modelMap.put("error", "Fallo el registro");
-            return "login.html";
+            model.put("error", "No se pudó realizar la modificación.");
+            return null; // TODO: vista del formulario para modificar datos
         }
     }
 
-    @GetMapping
-    public ResponseEntity<List<PatientDTO>> getAll() {
-        List<PatientDTO> patientList = this.patientService.getAll();
-        return ResponseEntity.ok(patientList);
+    @GetMapping("/list")
+    public String getAll(ModelMap model) {
+        List<PatientEntity> patientList = this.patientService.getAll();
+        model.addAttribute("patients", patientList);
+        return null; // TODO: vista que contendra la lista de pacientes
     }
 
 
@@ -54,16 +65,14 @@ public class PatientController {
         Recibe el id del paciente para obtener su turno asignado
      */
     @GetMapping("/appointment/{id}")
-    public ResponseEntity<AppointmentDTO> getAppointment(@PathVariable Long id) {
-        return ResponseEntity.ok(this.patientService.getAppointment(id));
+    public String getAppointment(@PathVariable Long id, ModelMap model) {
+        model.put("appointment", patientService.getAppointment(id));
+        return null; // TODO: Retornar el html que contenga la vista de turnos
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<PatientDTO> update(@PathVariable Long id, @RequestBody PatientDTO dto) {
-        PatientDTO result = this.patientService.update(id, dto);
-        return ResponseEntity.ok().body(result);
-    }
-
+    /*
+        TODO: Ver como implementar
+     */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.patientService.delete(id);
