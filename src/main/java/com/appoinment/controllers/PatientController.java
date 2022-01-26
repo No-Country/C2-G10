@@ -28,8 +28,7 @@ public class PatientController {
             model.put("error", e.getMessage());
             return "login.html";
         }
-        model.put("title", "Bienvenido " + name);
-        model.put("description", "Tu usuario fue registrado de manera satisfactoria!");
+        model.put("description", "Hola "+ name + ", tu usuario fue registrado de manera satisfactoria");
         return "patient-panel.html";
     }
 

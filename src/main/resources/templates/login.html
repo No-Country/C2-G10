@@ -23,7 +23,10 @@
 
         <!-- Formulario de logeo -->
         <form th:action="@{/logincheck}" method="post" id="login" class="input-group">
+            <br>
             <p th:if="${error != null}" th:text="${error}" style="color:red"></p>
+            <p th:if="${logout != null}" th:text="${logout}" style="color:blue"></p>
+            <br>
             <input type="email" class="input-field" placeholder="Correo Electronico" required name="email">
             <input type="password" class="input-field" placeholder="Contraseña" required name="password">
             <input type="checkbox" class="check-box"><span><b> Recordar Contraseña </b></span>

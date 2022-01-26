@@ -22,7 +22,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/static/css/home-style.css" />
+    <link rel="stylesheet" href="/css/home-style.css" />
 
     <script src="/js/app.js" defer></script>
   </head>
@@ -34,7 +34,8 @@
         <ul class="menu-items">
           <li><a href="#turno">Turnos</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="#" th:href="@{/logout}">Salir</a>
+          </form></li>
         </ul>
         <span class="btn-menu">
           <i class="fa fa-bars"></i>
@@ -45,7 +46,7 @@
     <!-- HEADER -->
     <header class="hero-patient">
       <div class="textos-hero">
-        <h1 th:text="${title}"></h1>
+        <h1 th:if="${session.patientsession != null}" th:text="|${title} ${session.patientsession.name}|"></h1>
         <p th:text="${description}"></p>
         <br />
       </div>
@@ -70,7 +71,7 @@
           <div class="contenedor-notice">
         <div class="wrapper">
           <div class="card-info">
-            <img src="../static/img/notice01.jpg" alt="" />
+            <img src="/img/notice01.jpg" alt="" />
             <div class="info">
               <h1> Aumento de Covid </h1>
               <p> El Numero en Ascenso no se detiene.</p>
@@ -79,7 +80,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/notice02.jpg" alt="" />
+            <img src="/img/notice02.jpg" alt="" />
             <div class="info">
               <h1> Verano y calor</h1>
               <p> La importancia de la hidratación</p>
@@ -89,7 +90,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/notice03.jpg" alt="" />
+            <img src="/img/notice03.jpg" alt="" />
             <div class="info">
               <h1> ¿Tengo o no tengo COVID-19? </h1>
               <p> Nuevos criterios para considerar casos positivos </p>
@@ -99,7 +100,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/notice04.jpg" alt="" />
+            <img src="/img/notice04.jpg" alt="" />
             <div class="info">
               <h1> ¿Cuanto costara el autotest del covid? </h1>
               <p> Confederación Farmacéutica Argentina, Isabel Reinoso, dijo . . . </p>
@@ -109,7 +110,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/notice05.jpg" alt="" />
+            <img src="/img/notice05.jpg" alt="" />
             <div class="info">
               <h1> Confirmaron el primer caso de FLURONA en el Pais: </h1>
               <p> ¿QUÉ ES? </p>
@@ -130,7 +131,7 @@
 
     <section class="cards contenedor">
       <h2 class="titulo">Solicitar Turno</h2>
-      <form th:action="" class="">
+      <form action="" class="">
         <input type="date" name="appoinmentDate" />
         <input type="time" name="appoinmentTime" />
         <input class="input" type="submit" value="Enviar" />
@@ -143,7 +144,7 @@
           <div class="contenedor-notice">
         <div class="wrapper">
           <div class="card-info">
-            <img src="../static/img/doctor01.jpg" alt="" />
+            <img src="/img/doctor01.jpg" alt="" />
             <div class="info">
               <h1> Laura Martinez </h1>
               <p> Ginecología </p>
@@ -151,7 +152,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/doctor02.jpg" alt="" />
+            <img src="/img/doctor02.jpg" alt="" />
             <div class="info">
               <h1> Amelia Hevia </h1>
               <p> Cardiología </p>
@@ -160,7 +161,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/doctor03.jpg" alt="" />
+            <img src="/img/doctor03.jpg" alt="" />
             <div class="info">
               <h1> Jorge Aso </h1>
               <p> Cirugía plástica, estética y reparadora </p>
@@ -168,7 +169,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/doctor05.jpg" alt="" />
+            <img src="/img/doctor05.jpg" alt="" />
             <div class="info">
               <h1> José Luis Martínez </h1>
               <p> Dermatología </p>
@@ -176,7 +177,7 @@
           </div>
 
           <div class="card-info">
-            <img src="../static/img/doctor06.jpg" alt="" />
+            <img src="/img/doctor06.jpg" alt="" />
             <div class="info">
               <h1> Alejandro Molina </h1>
               <p> Fisioterapia</p>

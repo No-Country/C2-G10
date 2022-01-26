@@ -14,7 +14,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -113,10 +116,13 @@ public class PatientServiceImpl implements PatientService {
         PatientEntity patient = patientRepository.findByEmail(email);
         if (patient != null) {
             List<GrantedAuthority> authorities = new ArrayList<>();  // Listado de permisos
-            GrantedAuthority auth_01 = new SimpleGrantedAuthority("MODULO_TURNOS");  // creamos permisos del paciente
-            GrantedAuthority auth_02 = new SimpleGrantedAuthority("MODULO_DOCTORES");
+            GrantedAuthority auth_01 = new SimpleGrantedAuthority("ROLE_USUARIO_REGISTRADO");  // creamos permisos del paciente
             authorities.add(auth_01);
-            authorities.add(auth_02);
+
+            ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes(); // traemos la solicitud
+            HttpSession session = attributes.getRequest().getSession(true); // traemos los datos de session
+            session.setAttribute("patientsession", patient ); // obtenemos los datos del usuario en el obj session
+
             User user = new User(patient.getEmail(), patient.getPassword(), authorities); //transformamos en un usuario de spring
             return user;
         } else {
