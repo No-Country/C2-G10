@@ -1,224 +1,245 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Appointment</title>
 
     <!--Fuente-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap"
+            rel="stylesheet"
     />
 
     <!-- Fontawesome Para los Iconos -->
     <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+            crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/css/home-style.css" />
+    <link rel="stylesheet" href="/css/home-style.css"/>
+
+    <link rel="stylesheet" href="/css/calendar.css">
 
     <script src="/js/app.js" defer></script>
-  </head>
-  <body>
-    <!-- menu de navegacion -->
-    <nav class="menu">
-      <label class="logo">Appointment</label>
-      <div class="content-menu-items">
+</head>
+<body>
+<!-- menu de navegacion -->
+<nav class="menu">
+    <label class="logo">Appointment</label>
+    <div class="content-menu-items">
         <ul class="menu-items">
-          <li><a href="#turno">Turnos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#" th:href="@{/logout}">Salir</a>
-          </form></li>
+            <li><a href="#turno">Turnos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#" th:href="@{/logout}">Salir</a>
+                </form></li>
         </ul>
         <span class="btn-menu">
           <i class="fa fa-bars"></i>
         </span>
-      </div>
-    </nav>
-    
-    <!-- HEADER -->
-    <header class="hero-patient">
-      <div class="textos-hero">
+    </div>
+</nav>
+
+<!-- HEADER -->
+<header class="hero-patient">
+    <div class="textos-hero">
         <h1 th:if="${session.patientsession != null}" th:text="|${title} ${session.patientsession.name}|"></h1>
         <p th:text="${description}"></p>
-        <br />
-      </div>
-      <!--Ola-->
-      <div class="svg-hero" style="height: 150px; overflow: hidden">
+        <br/>
+    </div>
+    <!--Ola-->
+    <div class="svg-hero" style="height: 150px; overflow: hidden">
         <svg
-          viewBox="0 0 500 150"
-          preserveAspectRatio="none"
-          style="height: 100%; width: 100%"
+                viewBox="0 0 500 150"
+                preserveAspectRatio="none"
+                style="height: 100%; width: 100%"
         >
-          <path
-            d="M-5.92,21.22 C317.43,188.98 349.20,-49.98 500.00,49.98 L500.00,150.00 L-5.92,156.42 Z"
-            style="stroke: none; fill: #ffff"
-          ></path>
+            <path
+                    d="M-5.92,21.22 C317.43,188.98 349.20,-49.98 500.00,49.98 L500.00,150.00 L-5.92,156.42 Z"
+                    style="stroke: none; fill: #ffff"
+            ></path>
         </svg>
-      </div>
-    </header>
+    </div>
+</header>
 
-   <!-- <section class="info-last"> -->
-      <section class="galeria">
-        <h1 class="titulo"> Novedades </h1>
-          <div class="contenedor-notice">
+<!-- <section class="info-last"> -->
+<section class="galeria">
+    <h1 class="titulo"> Novedades </h1>
+    <div class="contenedor-notice">
         <div class="wrapper">
-          <div class="card-info">
-            <img src="/img/notice01.jpg" alt="" />
-            <div class="info">
-              <h1> Aumento de Covid </h1>
-              <p> El Numero en Ascenso no se detiene.</p>
-              <a href="https://www.elnueve.com/el-numero-en-ascenso-no-se-detiene-casi-140-mil-casos-de-covid19-en-un-dia" class="readmore-btn" target="_BLANK"> Leer mas</a>
+            <div class="card-info">
+                <img src="/img/notice01.jpg" alt=""/>
+                <div class="info">
+                    <h1> Aumento de Covid </h1>
+                    <p> El Numero en Ascenso no se detiene.</p>
+                    <a href="https://www.elnueve.com/el-numero-en-ascenso-no-se-detiene-casi-140-mil-casos-de-covid19-en-un-dia"
+                       class="readmore-btn" target="_BLANK"> Leer mas</a>
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/notice02.jpg" alt="" />
-            <div class="info">
-              <h1> Verano y calor</h1>
-              <p> La importancia de la hidratación</p>
-              <a href="https://www.mendoza.gov.ar/prensa/verano-y-calor-la-importancia-de-la-hidratacion/" 
-              target="_BLANK" class="readmore-btn"> Leer mas</a>
+            <div class="card-info">
+                <img src="/img/notice02.jpg" alt=""/>
+                <div class="info">
+                    <h1> Verano y calor</h1>
+                    <p> La importancia de la hidratación</p>
+                    <a href="https://www.mendoza.gov.ar/prensa/verano-y-calor-la-importancia-de-la-hidratacion/"
+                       target="_BLANK" class="readmore-btn"> Leer mas</a>
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/notice03.jpg" alt="" />
-            <div class="info">
-              <h1> ¿Tengo o no tengo COVID-19? </h1>
-              <p> Nuevos criterios para considerar casos positivos </p>
-              <a href="https://www.elnueve.com/tengo-o-no-tengo-covid19-nuevos-criterios-para-considerar-casos-positivos
+            <div class="card-info">
+                <img src="/img/notice03.jpg" alt=""/>
+                <div class="info">
+                    <h1> ¿Tengo o no tengo COVID-19? </h1>
+                    <p> Nuevos criterios para considerar casos positivos </p>
+                    <a href="https://www.elnueve.com/tengo-o-no-tengo-covid19-nuevos-criterios-para-considerar-casos-positivos
               " target="_BLANK" class="readmore-btn"> Leer mas</a>
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/notice04.jpg" alt="" />
-            <div class="info">
-              <h1> ¿Cuanto costara el autotest del covid? </h1>
-              <p> Confederación Farmacéutica Argentina, Isabel Reinoso, dijo . . . </p>
-              <a href="https://www.elnueve.com/cuando-podre-comprar-y-cuanto-costaran-los-autotest-de-covid" 
-              target="_BLANK" class="readmore-btn"> Leer mas</a>
+            <div class="card-info">
+                <img src="/img/notice04.jpg" alt=""/>
+                <div class="info">
+                    <h1> ¿Cuanto costara el autotest del covid? </h1>
+                    <p> Confederación Farmacéutica Argentina, Isabel Reinoso, dijo . . . </p>
+                    <a href="https://www.elnueve.com/cuando-podre-comprar-y-cuanto-costaran-los-autotest-de-covid"
+                       target="_BLANK" class="readmore-btn"> Leer mas</a>
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/notice05.jpg" alt="" />
-            <div class="info">
-              <h1> Confirmaron el primer caso de FLURONA en el Pais: </h1>
-              <p> ¿QUÉ ES? </p>
-              <a href="https://www.elnueve.com/confirmaron-el-primer-caso-de-flurona-en-el-pais-que-es" 
-              target="_BLANK" class="readmore-btn"> Leer mas</a>
+            <div class="card-info">
+                <img src="/img/notice05.jpg" alt=""/>
+                <div class="info">
+                    <h1> Confirmaron el primer caso de FLURONA en el Pais: </h1>
+                    <p> ¿QUÉ ES? </p>
+                    <a href="https://www.elnueve.com/confirmaron-el-primer-caso-de-flurona-en-el-pais-que-es"
+                       target="_BLANK" class="readmore-btn"> Leer mas</a>
+                </div>
             </div>
-          </div>
         </div>
+    </div>
+</section>
+
+<section class="info">
+    <div class="contenedor-informacion">
+        <h2 class="titulo left">Más rapido, más simple, más comodo.</h2>
+        <p>Con Appointment estas al dia!</p>
+    </div>
+</section>
+
+<section class="cards contenedor">
+    <h2 id="turno" class="titulo">Solicitar Turno</h2>
+
+    <div class="root">
+        <div class="calendar" id="calendar">
+
         </div>
-      </section>
-    
-      <section class="info">
-        <div class="contenedor-informacion">
-          <h2 class="titulo left">Más rapido, más simple, más comodo.</h2>
-          <p>Con Appointment estas al dia!</p>
-        </div>
-      </section>
 
-    <section class="cards contenedor">
-      <h2 class="titulo">Solicitar Turno</h2>
-      <form action="" class="">
-        <input type="date" name="appoinmentDate" />
-        <input type="time" name="appoinmentTime" />
-        <input class="input" type="submit" value="Enviar" />
-      </form>
-    </section>
+    </div>
+</section>
 
-      <section class="galeria">
+<section class="galeria">
 
-        <h1 class="titulo"> Nuestros Especialistas </h1>
-          <div class="contenedor-notice">
+    <h1 class="titulo"> Nuestros Especialistas </h1>
+    <div class="contenedor-notice">
         <div class="wrapper">
-          <div class="card-info">
-            <img src="/img/doctor01.jpg" alt="" />
-            <div class="info">
-              <h1> Laura Martinez </h1>
-              <p> Ginecología </p>
+            <div class="card-info">
+                <img src="/img/doctor01.jpg" alt=""/>
+                <div class="info">
+                    <h1> Laura Martinez </h1>
+                    <p> Ginecología </p>
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/doctor02.jpg" alt="" />
-            <div class="info">
-              <h1> Amelia Hevia </h1>
-              <p> Cardiología </p>
+            <div class="card-info">
+                <img src="/img/doctor02.jpg" alt=""/>
+                <div class="info">
+                    <h1> Amelia Hevia </h1>
+                    <p> Cardiología </p>
 
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/doctor03.jpg" alt="" />
-            <div class="info">
-              <h1> Jorge Aso </h1>
-              <p> Cirugía plástica, estética y reparadora </p>
+            <div class="card-info">
+                <img src="/img/doctor03.jpg" alt=""/>
+                <div class="info">
+                    <h1> Jorge Aso </h1>
+                    <p> Cirugía plástica, estética y reparadora </p>
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/doctor05.jpg" alt="" />
-            <div class="info">
-              <h1> José Luis Martínez </h1>
-              <p> Dermatología </p>
+            <div class="card-info">
+                <img src="/img/doctor05.jpg" alt=""/>
+                <div class="info">
+                    <h1> José Luis Martínez </h1>
+                    <p> Dermatología </p>
+                </div>
             </div>
-          </div>
 
-          <div class="card-info">
-            <img src="/img/doctor06.jpg" alt="" />
-            <div class="info">
-              <h1> Alejandro Molina </h1>
-              <p> Fisioterapia</p>
+            <div class="card-info">
+                <img src="/img/doctor06.jpg" alt=""/>
+                <div class="info">
+                    <h1> Alejandro Molina </h1>
+                    <p> Fisioterapia</p>
+                </div>
             </div>
-          </div>
         </div>
-        </div>
-      </section>
+    </div>
+</section>
 
-      <!--Ola-->
-      <div class="svg-wave" style="height: 150px; overflow: hidden">
-        <svg
-          viewBox="0 0 500 150"
-          preserveAspectRatio="none"
-          style="height: 100%; width: 100%"
-        >
-          <path
-            d="M-5.92,21.22 C317.43,188.98 349.20,-49.98 500.00,49.98 L500.00,150.00 L-5.92,156.42 Z"
-            style="stroke: none; fill: #08f"
-          ></path>
-        </svg>
-      </div>
+<!--Ola-->
+<div class="svg-wave" style="height: 150px; overflow: hidden">
+    <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+    >
+        <path
+                d="M-5.92,21.22 C317.43,188.98 349.20,-49.98 500.00,49.98 L500.00,150.00 L-5.92,156.42 Z"
+                style="stroke: none; fill: #08f"
+        ></path>
+    </svg>
+</div>
 
-    </section>
-    <footer id="contacto">
-      <div class="contenedor">
+</section>
+<footer id="contacto">
+    <div class="contenedor">
         <h2 class="titulo">Contáctenos</h2>
         <form action="" class="form">
-          <input class="input" type="text" name="" placeholder="Nombre" />
-          <input class="input" type="email" name="" placeholder="Email" />
-          <textarea
-            class="input"
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Mensaje"
-          ></textarea>
-          <input class="input" type="submit" value="Enviar" />
+            <input class="input" type="text" name="" placeholder="Nombre"/>
+            <input class="input" type="email" name="" placeholder="Email"/>
+            <textarea
+                    class="input"
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="Mensaje"
+            ></textarea>
+            <input class="input" type="submit" value="Enviar"/>
         </form>
-      </div>
-    </footer>
-  </body>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+<script type="text/javascript" src="/js/calendar.js"></script>
+<script type="text/javascript">
+        let calendar = new Calendar('calendar');
+        calendar.getElement().addEventListener('change', e => {
+            console.log(calendar.value().format('LLL'));
+        });
+
+        let calendar2 = new Calendar('calendar2');
+        calendar2.getElement().addEventListener('change', e => {
+            console.log(calendar2.value().format('LLL'));
+        });
+
+</script>
+</body>
 </html>
